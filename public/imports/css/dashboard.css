@@ -1,0 +1,104 @@
+.container-fluid{
+     background-color:#E4E8E9;
+}
+.group, .reload, .add_shopping_cart, .trending_down{
+     font-size:50px !important;
+     padding-top: 4.9vh !important;
+     padding-right:1vh !important;
+     padding-left:2vh !important;
+}
+.title{
+     font-size:13px !important;
+     padding-top: 5.5vh !important;
+     padding-right:1vh !important;
+     font-weight: bold!important;
+
+}
+/*.top-product-price{
+     color: #66ca72 !important;
+}*/
+.newmember-count, .reload-sales, .product-sales, .low-stock {
+     padding-top: 5.5vh !important;
+     white-space: normal !important;
+
+      font-weight: 600!important;
+}
+
+.last-time{
+     font-size:11px !important;
+
+}
+#new-customers{
+     background-image: linear-gradient( 135deg, #90F7EC 10%, #32CCBC 100%);
+     color: white !important;
+     height: 16vh !important;
+     border-radius: 4px !important;
+     border: 1px solid linear-gradient( 135deg, #90F7EC 10%, #32CCBC 100%) !important;
+}
+ #new-reload{
+     background-image: linear-gradient( 135deg, #CE9FFC 10%, #7367F0 100%);
+     color: white !important;
+     height: 16vh !important;
+     border-radius: 4px !important;
+     border: 1px solid linear-gradient( 135deg, #CE9FFC 10%, #7367F0 100%) !important;
+}
+ #new-sales{
+     background-image: linear-gradient( 135deg, #81FBB8 10%, #28C76F 100%);
+     color: white !important;
+     height: 16vh !important;
+     border-radius: 4px !important;
+     border: 1px solid linear-gradient( 135deg, #81FBB8 10%, #28C76F 100%) !important;
+}
+ #new-low{
+     background-image: linear-gradient( 135deg, #FEB692 10%, #EA5455 100%);
+     color: white !important;
+     height: 16vh !important;
+     border-radius: 4px !important;
+     border: 1px solid linear-gradient( 135deg, #FEB692 10%, #EA5455 100%) !important;
+}
+ #sales-day{
+     border: 0.5px solid #ababab !important;
+     height: 70vh !important;
+     border-radius: 4px !important;
+     background-color: white !important;
+}
+ #member-walkin{
+     border: 0.5px solid #ababab !important;
+     height: 70vh !important;
+     border-radius: 4px !important;
+     background-color: white !important;
+}
+
+ #active-members{
+     border: 0.5px solid #ababab !important;
+     height: 70vh !important;
+     border-radius: 4px !important;
+     background-color: white !important;
+}
+
+ #sales-payment{
+     border: 0.5px solid #ababab !important;
+     height: 70vh !important;
+     border-radius: 4px !important;
+     background-color: white !important;
+
+}
+ #top-products{
+     border: 0.5px solid #ababab !important;
+     height: 70vh !important;
+     border-radius: 4px !important;
+     background-color: white !important;
+
+}
+ h6{
+     margin-top:0.5rem !important;
+}
+.label-product{
+     color: #eb5757 !important;
+}
+.label-total{
+    color: #66ca72 !important;
+}
+.label-product2, .label-total2{
+     color: #707982 !important;
+}

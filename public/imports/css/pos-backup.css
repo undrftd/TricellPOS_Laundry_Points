@@ -1,0 +1,46 @@
+body{
+  background-color: #fcfcfc !important;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/*pos css----------------*/
+.pos_button_side{
+background-color:#323a42 !important;
+
+}
+
+.pos_cashout_side{
+  background-color:#F8F8F8 !important;
+}
+.border.pos_cashout_side{
+  border-color:#ECF0F1  !important;
+
+}
+
+.pos_cashout_inside{
+  margin-top:8px !important;
+  background-color: white !important;
+}
+
+.btn1{
+  
+display: inline-block!important;
+width: 190px; /*matching the parents div width*/
+height: 95px;
+margin: 0.5em auto 0;
+text-align: center !important;
+/*padding: 20px 1.7em !important;*/
+border-radius: 10px;
+font-weight: 700;
+text-transform: uppercase;
+background-color: #BDC3C7;
+color: black;
+/*max-width: 190px;
+min-width: 190px;*/
+white-space: normal !important;
+font-size: 13px !important;
+
+}
+
+
+}

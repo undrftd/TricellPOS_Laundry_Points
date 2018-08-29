@@ -1,0 +1,177 @@
+body{
+  background-color: white !important;
+}
+/**#fcfcfc**/
+.table{
+  margin-top:20px !important;
+  font-size: small !important;
+
+}
+.table thead th {
+
+    font-weight: 200;
+}
+
+.th_css{
+  background-color:#29323c !important;
+  font-weight: 150 !important;
+  color: #f0f3f6;
+
+}
+
+.btn.add-prod-btn{
+  border-radius: 1.5rem !important;
+}
+
+.btn.btn-savemem-modal, .btn.btn-close-modal{
+    border-radius: 1.5rem;
+}
+
+#search-btn.btn-outline-info{
+  
+    background-color: white !important;
+    
+}
+#search-btn.btn-outline-info:hover{
+    color: white !important !important;
+    background-color:#17a2b8 !important;
+    border-color: #17a2b8;
+}
+
+.td_class{
+  background-color: #fcfcfc !important;
+}
+.td-center{
+  padding:20px !important;
+}
+
+.modal_css{
+  margin-top:15px !important;
+  align: right !important;
+}
+.table td, .table th {
+
+    text-align: center;
+}
+
+
+
+.title{
+  position:absolute;
+
+  color:#3A539B!important;
+}
+
+.btn.add-item-btn{
+  border-radius: 1.5rem;
+}
+
+.material-icons.md-18 {
+font-size: 18px;
+}
+
+.btn.edit-btn, .btn.del-btn{
+  border-radius: 1.5rem;
+}
+/*********MODAL CSS************/
+.btn.btn-save-modal, .btn.btn-close-modal{
+    border-radius: 1.5rem;
+}
+.modal-header {
+    background-color: lightgrey;
+}
+
+
+#mysearch:focus + .input-group-addon {
+  z-index: 10;
+}
+
+
+
+#search-btn.btn-group-sm > .btn, .btn-sm {
+    padding: .35rem .7rem !important;
+}
+
+.error-add {
+  color: red !important;
+  font-size: 13px;
+}
+
+.error-edit {
+  color: red !important;
+  font-size: 13px;
+}
+
+.memberstab.nav-tabs .nav-item.show .nav-link, .memberstab.nav-tabs .nav-link.active {
+    color:  #3A539B !important;
+    background-color: #fcfcfc !important;
+    border-color: #fcfcfc #fcfcfc #3A539B !important;
+    border-width: 1.5px !important;
+    font-weight: bold !important;
+    border-radius: 0px !important;
+}
+
+
+.nav {
+  padding-top: 2px;
+}
+
+.nav-tabs .nav-link:hover {
+    color:  #3A539B !important;
+    background-color: #fcfcfc !important;
+    border-color: #fcfcfc #fcfcfc #3A539B !important;
+    border-width: 1.5px !important;
+    font-weight: bold !important;
+    border-radius: 0px !important;
+}
+
+#nav-tab {
+  margin-bottom: 16.2px !important;
+}
+
+.nav-tabs .nav-link {
+  color: #404040!important;
+}
+.page-link {
+    color: #2d3f54 !important;
+}
+
+.page-link:hover {
+
+    color: #fcfcfc !important;
+    background-color: #2d3f54 !important;
+    border-color: #2d3f54 !important;
+}
+
+.page-item.active .page-link {
+
+    color: #fcfcfc !important;
+    background-color: #2d3f54 !important;
+    border-color: #2d3f54 !important;
+
+}
+/****NAV CSS***/
+/**.nav_custom{
+
+background-color: #29323c !important;
+height: 15% !important;
+border-bottom-color: #black !important;
+border: black !important;
+box-shadow:0 2px 2px rgba(0,0,0,.1) !important;
+
+}
+
+.nav-link{
+color: #c4cdd5  !important;
+
+   font: bold !important;
+   font-size: 12px !important;
+   font-weight: 200 !important;
+}
+
+.nav-link:hover {
+  color: #616770 !important;
+
+
+}
+/***NAV CSS***/

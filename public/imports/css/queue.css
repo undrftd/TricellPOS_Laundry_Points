@@ -1,0 +1,253 @@
+body{
+  background-color: white !important;
+}
+/**#fcfcfc**/
+.table{
+  margin-top:37px !important;
+  font-size: small !important;
+
+}
+.td-center{
+  padding:20px !important;
+}
+.table thead th {
+
+    font-weight: 200;
+}
+.th_css{
+  background-color:#29323c !important;
+  font-weight: 150 !important;
+  color: #f0f3f6;
+
+}
+
+.td_class{
+  background-color: #fcfcfc !important;
+}
+
+.modal_css{
+  margin-top:15px !important;
+  align: right !important;
+}
+.table td, .table th {
+
+    text-align: center;
+}
+.page-link {
+    color: #2d3f54 !important;
+}
+
+.page-link:hover {
+
+    color: #fcfcfc !important;
+    background-color: #2d3f54 !important;
+    border-color: #2d3f54 !important;
+}
+
+.page-item.active .page-link {
+
+    color: #fcfcfc !important;
+    background-color: #2d3f54 !important;
+    border-color: #2d3f54 !important;
+
+}
+
+
+
+.title{
+  position:absolute;
+
+  color:#3A539B!important;
+}
+
+.btn.view-btn{
+  border-radius: 1.5rem;
+}
+
+.material-icons.md-18 {
+font-size: 18px;
+}
+
+.btn.edit-btn, .btn.switch-btn{
+  border-radius: 1.5rem;
+}
+/*********MODAL CSS************/
+.btn.btn-save-modal, .btn.btn-close-modal{
+    border-radius: 1.5rem;
+}
+.modal-header {
+    background-color: lightgrey;
+}
+
+.modal-xl {
+   width: 90% !important;
+   max-width:1800px !important;
+  }
+.laundry_icon{
+  font-size:4em !important;
+ 
+}
+.laundry_icon_active{
+  color: #1abc9c !important;
+}
+.laundry_icon_inactive{
+  color: #a5adb1!important;
+}
+.laundry_icon_lastminute{
+  color: #ff9f43!important;
+}
+.timer{
+  text-align: center !important;
+}
+
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
+/*.laundry_button_function{
+    border: none !important;
+  color: #ff9f43!important;
+    background-color: white !important;
+  cursor: pointer !important;
+}*/
+.btn.btn-outline-secondary{
+  border: none !important;
+    background-color: transparent !important;
+  color: #a5adb1!important;
+  padding: 0 !important;
+}
+
+.btn.btn-outline-secondary:hover, .btn.btn-outline-secondary:focus{
+  border: none !important;
+  color: #1abc9c !important;
+    background-color: transparent !important;
+}
+.laundry_icon_button{
+  font-size:4rem !important;
+ 
+}
+.laundry_icon_button2{
+  font-size:4rem !important;
+  color:#525456 !important;
+}
+
+/*span.qty_switch {
+    background-color: #e1f5f5 !important;
+    padding: 0.3rem 1.1rem;
+    border-radius: 6px;
+}*/
+h6.qty_switch {
+    position: absolute;
+    right: 14% !important;
+    background-color: #fd6666 !important;
+    padding: 0.2rem 0.6rem;
+    border-radius: 13px !important;
+    color: white !important;
+}
+/****switch***/
+.switch{
+  --uiSwitchSize: var(--switchSize, 40px);
+  --uiSwitchBgColor: var(--switchBgColor, #f1f1f1);
+  --uiSwitchBgColorActive: var(--switchBgColorActive, #4ed164);
+  --uiSwitchBorderColorActive: var(--switchBorderColorActive, #fff);
+  --uiSwitchBorderColorFocus: var(--switchBgColorFocus, #43b556);
+  --uiSwitchButtonBgColor: var(--switchButtonBgColor, #fff);  
+  
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.switch__label{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.switch__toggle{
+  width: 0;
+  height: 0;
+  opacity: 0;
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.switch__toggle:focus ~ .switch__label{
+  box-shadow: 0 0 0 var(--uiSwitchThickFocus, 4px) var(--uiSwitchBorderColorFocus);
+}
+
+.switch__toggle:checked:focus ~ .switch__label{
+  box-shadow: 0 0 0 var(--uiSwitchThickFocus, 4px) var(--uiSwitchBorderColorActive);
+}
+
+.switch__label:before, .switch__label:after{
+  content: "";
+  cursor: pointer;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.switch__label:before{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: var(--uiSwitchBgColor);
+}
+
+.switch__label:after{
+  top: 50%;
+  z-index: 3;
+  transition: transform .4s cubic-bezier(0.44,-0.12, 0.07, 1.15);
+}
+
+/* type 1 */
+
+.switch_type1{
+  --uiSwitchBorderRadius: var(--switchBorderRadius, 60px);
+  
+  width: var(--uiSwitchSize);
+  height: calc((var(--uiSwitchSize) / 2));
+  border-radius: var(--uiSwitchBorderRadius);    
+  background-color: var(--uiSwitchBgColorActive);
+}
+
+.switch_type1 .switch__label{
+  border-radius: var(--uiSwitchBorderRadius);    
+}
+
+.switch_type1 .switch__label:before{
+  border-radius: var(--uiSwitchBorderRadius);
+  transition: opacity .2s ease-out .1s, transform .2s ease-out .1s;
+  transform: scale(1);
+  opacity: 1;
+}
+
+.switch_type1 .switch__toggle:checked ~ .switch__label:before{
+  transform: scale(0);
+  opacity: .7;
+}
+
+.switch_type1 .switch__label:after{
+  width: calc(var(--uiSwitchSize) / 2);
+  height: calc(var(--uiSwitchSize) / 2);
+  transform: translate3d(0, -50%, 0);
+  
+  background-color: var(--uiSwitchButtonBgColor);
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .3);  
+}
+
+.switch_type1 .switch__toggle:checked ~ .switch__label:after{
+  transform: translate3d(100%, -50%, 0);
+}
+.col.service{
+  flex-grow: 0!important;
+}
+.divider {    
+    width: 420px !important;
+}

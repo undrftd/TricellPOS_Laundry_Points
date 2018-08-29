@@ -1,0 +1,85 @@
+body{
+  background-color: #fcfcfc !important;
+  overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif !important;
+}
+.nav_custom {
+    background-color: #29323c !important;
+    border-bottom-color: #black !important;
+    border: black !important;
+    box-shadow: 0 9px 8px rgba(0,0,0,.1) !important;
+}
+
+.nav-link{
+color: #fff  !important;
+
+   font: bold !important;
+   font-size: 14px !important;
+   font-weight: 350 !important;
+}
+
+.logo{
+
+  margin-left: 20px !important;
+}
+.spaces{
+  margin-left: 85px !important;
+  margin-right:-60px !important;
+}
+.nav-link:hover {
+    color: #fcfcfc !important;
+    background-color: #2d3f54 !important;
+    opacity: 0.8 !important;
+    border-radius: 5px !important;
+}
+a.nav-link.active {
+    color: #fcfcfc !important;
+    background-color: #2d3f54 !important;
+    opacity: 0.8 !important;
+    border-radius: 5px !important;
+}
+
+/*.hello.dropdown:hover>.dropdown-menu, #logsdrop.dropdown:hover>.dropdown-menu {
+  display: block;
+  /*margin-left: 600px!important;*/
+}*/
+
+.nav-item.dropdown.hello {
+  margin-left: 630px!important;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: #2d3f54 !important;
+    opacity: 0.8 !important;
+}
+/*.md5col{
+  margin-left: 5px !important;*/
+/*pos css----------------*/
+
+/****NAV CSS***/
+/**.nav_custom{
+
+background-color: #29323c !important;
+height: 15% !important;
+border-bottom-color: #black !important;
+border: black !important;
+box-shadow:0 2px 2px rgba(0,0,0,.1) !important;
+
+}
+
+.nav-link{
+color: #c4cdd5  !important;
+
+   font: bold !important;
+   font-size: 12px !important;
+   font-weight: 200 !important;
+}
+
+.nav-link:hover {
+  color: #616770 !important;
+
+
+}
+/***NAV CSS***/

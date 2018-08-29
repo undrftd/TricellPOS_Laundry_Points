@@ -1,0 +1,46 @@
+body{
+  background-color: #e4e4e4  !important;
+  font-family: 'Oxygen Mono', monospace !important;
+}
+
+.container{
+  width: 25% !important;
+ height:auto!important;
+ min-height: 100% !important;
+ background-color: white !important;
+
+  
+}
+
+div.border {
+    border: 1px solid #bfbfbf!important;
+}
+
+.address{
+  font-size:12px !important;
+}
+p{
+  text-align: center !important;
+  font-size:18px !important;
+}
+
+.table td,.table th{
+    padding: .2rem !important;
+    font-size: 12px !important;
+}
+
+.subtotal{
+  border-top: 1px solid rgba(0,0,0,.1);
+
+}
+.vat{
+  border-top: 1px solid rgba(0,0,0,.1);
+
+}
+.total{
+  border-top: 1px solid rgba(0,0,0,.1);
+
+}
+.computation tbody{
+  padding: 0.9rem !important;
+}

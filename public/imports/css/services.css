@@ -1,0 +1,77 @@
+body{
+  background-color: white !important;
+  font-family: 'Montserrat', sans-serif !important;
+}
+/**#fcfcfc**/
+.table{
+  margin-top:20px !important;
+  font-size: small !important;
+
+}
+.table thead th {
+
+    font-weight: 200;
+}
+.th_css{
+  background-color:#29323c !important;
+  font-weight: 150 !important;
+  color: #f0f3f6;
+
+}
+
+.td_class{
+  background-color: #fcfcfc !important;
+}
+.table td, .table th {
+
+    text-align: center;
+}
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    margin-right: 10px!important;
+    /* font-weight: bold !important; */
+    font-size: 16px !important;
+}
+
+input#in-price {
+    width: 200px !important;
+    display: inline;
+}
+.modal_css{
+  margin-top:15px !important;
+  align: right !important;
+}
+
+
+.memberstab.nav-tabs .nav-item.show .nav-link, .memberstab.nav-tabs .nav-link.active {
+    color:  #3A539B !important;
+    background-color: #fefcfc !important;
+    border-color: #dee2e6 #dee2e6 #fcfcfc !important;
+    font-weight: bold !important;
+}
+
+.nav-tabs .nav-link:hover {
+    background-color: #fcfcfc !important;
+    border-color: #dee2e6 #dee2e6 ##fcfcfc !important;
+    color:#3A539B!important;
+    font-weight: bold !important;
+}
+
+.nav-tabs .nav-link {
+  color: #404040!important;
+}
+
+.title{
+  position:absolute;
+
+  color:#3A539B!important;
+}
+
+.btn.update-btn{
+  border-radius: 1.5rem;
+}
+
+.material-icons.md-18 {
+font-size: 18px;
+}

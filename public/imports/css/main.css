@@ -1,0 +1,141 @@
+body {
+  font-family: 'Montserrat', sans-serif !important;
+}
+.pos_buttons_col1{
+     height: 700px;
+     background-color: powderblue;
+}
+ .pos_transactions_col2{
+     height: 700px;
+     background-color: pink;
+}
+ .white{
+     height: 550px;
+     margin-left: 21px;
+     background-color: white;
+}
+/****LOGIN PAGE CSS***/
+ .logo_hp{
+     font-size: 98px;
+     padding-top: 120px;
+     font-weight: 800;
+}
+
+.logo1_hp{
+     font-size: 45px;
+     margin-top: -60px;
+     letter-spacing: 13px;
+     padding-left: 10px;
+}
+ .login_bg{
+     background-color: #ECF0F1;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-size: cover;
+}
+ #log_user_form{
+     border-top: 0;
+     border-left: 0;
+     border-right: 0;
+     -webkit-box-shadow: none;
+     box-shadow: none;
+     background-color: #ECF0F1;
+     border-color: #4c4c4c;
+     border-style: solid;
+    /*width: 270px;
+    */
+     border-radius: 0;
+     border-bottom-width: 4px;
+}
+ #log_user, #log_pass{
+     border-top: 0;
+     border-left: 0;
+     border-right: 0;
+     border-bottom: 0;
+     background-color: #ECF0F1;
+}
+ .glyphicon-user{
+     position:absolute;
+     margin-bottom:-80px;
+     margin-top:30px;
+     color:#4c4c4c;
+     margin-left:60px;
+}
+ #log_pass_form{
+     border-top: 0;
+     border-left: 0;
+     border-right: 0;
+     -webkit-box-shadow: none;
+     box-shadow: none;
+     background-color: #ECF0F1;
+     border-color: #4c4c4c;
+     border-style: solid;
+     width: 270px;
+     border-radius: 0;
+     border-bottom-width: 4px;
+}
+ .glyphicon-lock{
+     position:absolute;
+     margin-bottom:-80px;
+     margin-top:30px;
+     color:#4c4c4c;
+     margin-left:60px;
+}
+ input:focus{
+    /**!border-bottom-color: pink!important;
+    **/
+     border-image-source: linear-gradient(rgba(31, 159, 244, 1), rgba(78, 67, 118, 1));
+     border-width: 5pt;
+     border-image-slice: 1;
+}
+ .buttons {
+     margin: 10%;
+     text-align: center;
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;
+}
+ .btn-hover {
+     width: 170px;
+     font-size: 16px;
+     font-weight: 200;
+     color: #fff;
+     cursor: pointer;
+     margin: 20px;
+     height: 40px;
+     text-align:center;
+     border: none;
+     background-size: 300% 100%;
+     border-radius: 50px;
+     moz-transition: all .4s ease-in-out;
+     -o-transition: all .4s ease-in-out;
+     -webkit-transition: all .4s ease-in-out;
+     transition: all .4s ease-in-out;
+}
+ .btn-hover:hover {
+     background-position: 100% 0;
+     moz-transition: all .4s ease-in-out;
+     -o-transition: all .4s ease-in-out;
+     -webkit-transition: all .4s ease-in-out;
+     transition: all .4s ease-in-out;
+}
+ .btn-hover:focus {
+     outline: none;
+}
+ .btn-hover.color-8 {
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;
+     background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+     box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+}
+ .alert.alert-dark {
+     width:326px !important;
+     height:auto !important;
+     font-size: 12px !important;
+     text-align: center !important;
+}
+ .close{
+     font-size:1.2rem !important;
+}
+/***END OF LOGIN CSS***/
