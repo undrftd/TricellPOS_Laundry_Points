@@ -79,7 +79,7 @@ ACCOUNTS
           <td class="td-center">₱ {{$member->balance->load_balance}}</td>
           <td class="td-center">{{$member->balance->points_balance}}</td>
           <td>
-          	<button type="button" id="edit-member" class="btn btn-primary edit-btn" data-toggle="modal" data-target=".edit_member" data-id="{{ $member->id }}" data-cardnumber ="{{ $member->card_number }}" data-firstname="{{$member->firstname}}" data-lastname="{{$member->lastname}}" data-address="{{$member->address}}" data-contact="{{$member->contact_number}}" data-email="{{$member->email}}"><i class="material-icons md-18">mode_edit</i></button>
+          	<button type="button" id="edit-member" class="btn btn-primary edit-btn" data-toggle="modal" data-target=".edit_member" data-id="{{ $member->id }}" data-cardnumber ="{{ $member->card_number }}" data-firstname="{{$member->firstname}}" data-lastname="{{$member->lastname}}" data-address="{{$member->address}}" data-contact="{{$member->contact_number}}" data-email="{{$member->email}}" data-points="{{$member->balance->points_balance}}"><i class="material-icons md-18">mode_edit</i></button>
             <button type="button" id="reload-member" class="btn btn-success edit-btn" data-toggle="modal" data-target=".reload_member" data-id="{{$member->id}}" data-load="{{$member->balance->load_balance}}" data-points="{{$member->balance->points}}"><i class="pp-reload"></i></button>
           	<button type="button" id="delete-member" class="btn btn-danger del-btn" data-id="{{$member->id}}" data-firstname="{{$member->firstname}}" data-lastname="{{$member->lastname}}" data-toggle="modal" data-target=".delete_member"><i class="material-icons md-18">delete</i></button>
           </td>
@@ -366,6 +366,14 @@ ACCOUNTS
         </div>
       </div>
 
+      <div class="form-group row mx-auto">
+        <label for="points" class="col-form-label col-md-2 modal-mobile">Points:</label>
+        <div class="col-md-10">
+            <input type="text" name="points" class="form-control" id="points-edit">
+            <p id="error-points-edit" class="error-edit" hidden="hidden"></p>
+        </div>
+      </div>
+
       <div class="modal-footer" id="modal-footer-member-edit">
         <button type="submit" class="btn btn-info btn-savemem-modal" id="update-member">Save Changes</button>
         <button type="button" class="btn btn-secondary btn-close-modal" data-dismiss="modal">Close</button>
@@ -456,6 +464,7 @@ ACCOUNTS
     $('#error-address-edit').attr('hidden', true);
     $('#error-contact-edit').attr('hidden', true);
     $('#error-email-edit').attr('hidden', true);
+    $('#error-points-edit').attr('hidden', true);
 
     //remove css style in modal
     $('#cardnumber-edit').removeAttr('style');
@@ -464,6 +473,7 @@ ACCOUNTS
     $('#address-edit').removeAttr('style');
     $('#contact-edit').removeAttr('style');
     $('#email-edit').removeAttr('style');
+    $('#points-edit').removeAttr('style');
   });
 
   $('.reload_member').on('hide.bs.modal', function(){
@@ -807,6 +817,7 @@ ACCOUNTS
     $("#address-edit").val($(this).data('address'));
     $("#contact-edit").val($(this).data('contact'));
     $("#email-edit").val($(this).data('email'));
+    $("#points-edit").val($(this).data('points'));
   });
 
   $('#modal-footer-member-edit').on('click', '#update-member', function(event) {
@@ -821,7 +832,8 @@ ACCOUNTS
             'lastname': $("#lastname-edit").val(),
             'address': $("#address-edit").val(),
             'contact': $("#contact-edit").val(),
-            'email': $("#email-edit").val()
+            'email': $("#email-edit").val(),
+            'points': $("#points-edit").val(),
           },
     success: function(data) {
       console.log(data);
@@ -896,6 +908,18 @@ ACCOUNTS
           {
             $('#error-email-edit').attr("hidden", true);
             $('#email-edit').removeAttr('style');
+          }
+
+          if(data.errors.points)
+          {
+            $('#error-points-edit').removeAttr("hidden");
+            $('#error-points-edit').text(data.errors.points);
+            $('#points-edit').css("border", "1px solid #cc0000");
+          }
+          else
+          {
+            $('#error-points-edit').attr("hidden", true);
+            $('#points-edit').removeAttr('style');
           }
       }
       else

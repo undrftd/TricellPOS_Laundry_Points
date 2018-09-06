@@ -78,6 +78,7 @@ class MemberAccountsController extends Controller
         'address' => 'bail|required|regex:/^[#.0-9a-zA-Z\s,-]+$/|min:6',
         'contact' => 'bail|required|digits_between:7,11',
         'email' => "bail|required|email|unique:users,email,$member->id",
+        'points' => 'bail|required|numeric'
         );
 
         $validator = Validator::make($request->all(), $rules);
@@ -95,6 +96,9 @@ class MemberAccountsController extends Controller
             $member->contact_number = $request->contact;
             $member->email = $request->email;
             $member->save();
+
+            $member->balance->points_balance = $request->points;
+            $member->balance->save();
         }
     }
 

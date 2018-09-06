@@ -171,6 +171,7 @@ return [
         'address' => 'Address',
         'contact' => 'Contact Number',
         'email' => 'E-mail Address',
+        'points' => 'Points',
         'product_name' => 'Item Name',
         'product_desc' => 'Item Description',
         'price' => 'Price',
@@ -187,7 +188,8 @@ return [
         'vat' => 'VAT',
         'washertimer' => 'Washer Timer',
         'dryertimer' => 'Dryer Timer',
-        'lowstock' => 'Low Stock Indicator'
+        'pointratio' => 'Peso-Point Ratio',
+        'lowstock' => 'Low Stock Alert'
     ],
 
 ];

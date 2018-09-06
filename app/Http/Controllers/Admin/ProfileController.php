@@ -28,6 +28,7 @@ class ProfileController extends Controller
         'vat' => 'required|numeric',
         'washertimer' => 'required|integer',
         'dryertimer' => 'required|integer',
+        'pointratio' => 'required|numeric',
         'lowstock' => 'required|integer'
         );
 
@@ -46,6 +47,7 @@ class ProfileController extends Controller
             'tin' => $request->tin,
             'vat' => $request->vat,
             'washer_timer' => $request->washertimer,
+            'point_ratio' => $request->pointratio,
             'dryer_timer' => $request->dryertimer,
             'low_stock' => $request->lowstock
             ]);

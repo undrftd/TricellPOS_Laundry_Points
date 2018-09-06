@@ -101,7 +101,19 @@ SYSTEM PREFERENCES
                 </div>
               </div>
               <div class="form-group row mx-auto">
-                <label for="lowstock" class="col-form-label col-md-4 modal-mobile">Low Stock Indicator</label>
+                <label for="card-no" class="col-form-label col-md-4 modal-card">Peso - Point Ratio:</label>
+                <div class="col-md-8">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class ="input-group-text" id="basic-addon-profile">₱</span>
+                  </div>
+                  <input type="text" name="point_ratio" value="{{$profile->point_ratio}}" class="form-control" id="pointratio-profile">
+                </div>
+                <p id="error-pointratio-profile" class="error-profile" hidden="hidden"></p>
+                </div>
+              </div>
+              <div class="form-group row mx-auto">
+                <label for="lowstock" class="col-form-label col-md-4 modal-mobile">Low Stock Alert:</label>
                 <div class="col-md-8">
                   <input type="text" name="lowstock" value="{{$profile->low_stock}}" class="form-control" id="lowstock-profile">
                   <p id="error-lowstock-profile" class="error-profile" hidden="hidden"></p>
@@ -177,6 +189,7 @@ SYSTEM PREFERENCES
             'vat': $("#vat-profile").val(),
             'washertimer': $("#washertimer-profile").val(),
             'dryertimer': $("#dryertimer-profile").val(),
+            'pointratio': $("#pointratio-profile").val(),
             'lowstock': $("#lowstock-profile").val(),
           },
     success: function(data) {
@@ -278,6 +291,18 @@ SYSTEM PREFERENCES
           {
             $('#error-dryertimer-profile').attr("hidden", true);
             $('#dryertimer-profile').removeAttr('style');
+          }
+
+          if(data.errors.pointratio)
+          {
+            $('#error-pointratio-profile').removeAttr("hidden");
+            $('#error-pointratio-profile').text(data.errors.pointratio);
+            $('#pointratio-profile').css("border", "1px solid #cc0000");
+          }
+          else
+          {
+            $('#error-pointratio-profile').attr("hidden", true);
+            $('#pointratio-profile').removeAttr('style');
           }
 
           if(data.errors.lowstock)
