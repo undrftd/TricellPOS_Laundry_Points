@@ -23,8 +23,8 @@ Route::group(['middleware' => ['admin']], function () {
 	//POS
 	Route::get('sales', 'Admin\PointofSaleController@index');
 	Route::get('sales/buttons', 'Admin\PointofSaleController@buttonload');
-	Route::post('sales/member_cashpayment', 'Admin\PointofSaleController@member_cashpayment');
 	Route::post('sales/member_loadpayment', 'Admin\PointofSaleController@member_loadpayment');
+	Route::post('sales/member_pointspayment', 'Admin\PointofSaleController@member_pointspayment');
 	Route::get('sales/member_autocomplete', 'Admin\PointofSaleController@member_autocomplete');
 	Route::post('sales/guest_cashpayment', 'Admin\PointofSaleController@guest_cashpayment');
 	Route::post('sales/member_reload', 'Admin\PointofSaleController@reload');
@@ -115,8 +115,8 @@ Route::group(['middleware' => ['staff']], function () {
 	//POS
 	Route::get('staff/sales', 'Staff\PointofSaleController@index');
 	Route::get('staff/sales/buttons', 'Staff\PointofSaleController@buttonload');
-	Route::post('staff/sales/member_cashpayment', 'Staff\PointofSaleController@member_cashpayment');
 	Route::post('staff/sales/member_loadpayment', 'Staff\PointofSaleController@member_loadpayment');
+	Route::post('staff/sales/member_pointspayment', 'Staff\PointofSaleController@member_pointspayment');
 	Route::get('staff/sales/member_autocomplete', 'Staff\PointofSaleController@member_autocomplete');
 	Route::post('staff/sales/guest_cashpayment', 'Staff\PointofSaleController@guest_cashpayment');
 	Route::post('staff/sales/member_reload', 'Staff\PointofSaleController@reload');

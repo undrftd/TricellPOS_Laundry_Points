@@ -90,6 +90,12 @@ DASHBOARD
          </canvas>
       </div>
    </div>
+   <div class="row">
+      <div class="col m-1 border" id="machines-stat">
+         <canvas id="machinestat">
+         </canvas>  
+      </div>
+   </div>
 
     <div class="row">
       <div class="col m-1 border" id="top-products">
@@ -139,6 +145,248 @@ DASHBOARD
 </div>
 
 <script type="text/javascript">
+   var bar_ctx = document.getElementById('machinestat').getContext('2d');
+   var areagradient = bar_ctx.createLinearGradient(0, 0, 0, 450);
+   areagradient.addColorStop(0, '#3BD0C0');
+   areagradient.addColorStop(1, '#FFFFFF');
+   var year = <?php echo \Carbon\Carbon::now()->format('Y') ?>;
+   new Chart(document.getElementById("machinestat"), {
+    type: 'line',
+    data: {
+         labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+         datasets: [
+         {
+            data: <?php echo json_encode($washerOneStats)?>,
+            label: "Washer 1",
+            borderWidth: 3,
+            borderColor: "#e6194b",
+            fill: false,
+         }, 
+         {
+            data: <?php echo json_encode($washerTwoStats)?>,
+            label: "Washer 2",
+            borderWidth: 3,
+            borderColor: "#3cb44b",
+            fill: false,
+            hidden: true
+         },
+         {
+            data: <?php echo json_encode($washerThreeStats)?>,
+            label: "Washer 3",
+            borderWidth: 3,
+            borderColor: "#3cba9f",
+            fill: false,
+            hidden: true
+         },
+         {
+            data: <?php echo json_encode($washerFourStats)?>,
+            label: "Washer 4",
+            borderWidth: 3,
+            borderColor: "#ffe119",
+            fill: false,
+            hidden: true
+         },
+         {
+            data: <?php echo json_encode($washerFiveStats)?>,
+            label: "Washer 5",
+            borderWidth: 3,
+            borderColor: "#0082c8",
+            fill: false,
+            hidden: true
+         },
+         {
+            data: <?php echo json_encode($washerSixStats)?>,
+            label: "Washer 6",
+            borderWidth: 3,
+            borderColor: "#f58231",
+            fill: false,
+            hidden: true
+         },
+         {
+            data: <?php echo json_encode($washerSevenStats)?>,
+            label: "Washer 7",
+            borderWidth: 3,
+            borderColor: "#911eb4",
+            fill: false,
+            hidden: true
+         },
+         {
+            data: <?php echo json_encode($washerEightStats)?>,
+            label: "Washer 8",
+            borderWidth: 3,
+            borderColor: "#46f0f0",
+            fill: false,
+            hidden: true
+         },
+         {
+            data: <?php echo json_encode($washerNineStats)?>,
+            label: "Washer 9",
+            borderWidth: 3,
+            borderColor: "#f032e6",
+            fill: false,
+            hidden: true
+         },
+         {
+            data: <?php echo json_encode($washerTenStats)?>,
+            label: "Washer 10",
+            borderWidth: 3,
+            borderColor: "#d2f53c",
+            fill: false,
+            hidden: true
+         },
+         {
+            data: <?php echo json_encode($washerElevenStats)?>,
+            label: "Washer 11",
+            borderWidth: 3,
+            borderColor: "#fabebe",
+            fill: false,
+            hidden: true
+         },
+         {
+            data: <?php echo json_encode($washerTwelveStats)?>,
+            label: "Washer 12",
+            borderWidth: 3,
+            borderColor: "#008080",
+            fill: false,
+            hidden: true
+         },
+         {
+            data: <?php echo json_encode($dryerOneStats)?>,
+            label: "Dryer 1",
+            borderWidth: 3,
+            borderColor: "#e6beff",
+            fill: false,
+            hidden: true
+         }, 
+         {
+            data: <?php echo json_encode($dryerTwoStats)?>,
+            label: "Dryer 2",
+            borderWidth: 3,
+            borderColor: "#aa6e28",
+            fill: false,
+            hidden: true
+         },
+         {
+            data: <?php echo json_encode($dryerThreeStats)?>,
+            label: "Dryer 3",
+            borderWidth: 3,
+            borderColor: "#fffac8",
+            fill: false,
+            hidden: true
+         },
+         {
+            data: <?php echo json_encode($dryerFourStats)?>,
+            label: "Dryer 4",
+            borderWidth: 3,
+            borderColor: "#e8c3b9",
+            fill: false,
+            hidden: true
+         },
+         {
+            data: <?php echo json_encode($dryerFiveStats)?>,
+            label: "Dryer 5",
+            borderWidth: 3,
+            borderColor: "#800000",
+            fill: false,
+            hidden: true
+         },
+         {
+            data: <?php echo json_encode($dryerSixStats)?>,
+            label: "Dryer 6",
+            borderWidth: 3,
+            borderColor: "#aaffc3",
+            fill: false,
+            hidden: true
+         },
+         {
+            data: <?php echo json_encode($dryerSevenStats)?>,
+            label: "Dryer 7",
+            borderWidth: 3,
+            borderColor: "#808000",
+            fill: false,
+            hidden: true
+         },
+         {
+            data: <?php echo json_encode($dryerEightStats)?>,
+            label: "Dryer 8",
+            borderWidth: 3,
+            borderColor: "#c45850",
+            fill: false,
+            hidden: true
+         },
+         {
+            data: <?php echo json_encode($dryerNineStats)?>,
+            label: "Dryer 9",
+            borderWidth: 3,
+            borderColor: "#ffd8b1",
+            fill: false,
+            hidden: true
+         },
+         {
+            data: <?php echo json_encode($dryerTenStats)?>,
+            label: "Dryer 10",
+            borderWidth: 3,
+            borderColor: "#000080",
+            fill: false,
+            hidden: true
+         },
+         {
+            data: <?php echo json_encode($dryerElevenStats)?>,
+            label: "Dryer 11",
+            borderWidth: 3,
+            borderColor: "#808080",
+            fill: false,
+            hidden: true
+         },
+         {
+            data: <?php echo json_encode($dryerTwelveStats)?>,
+            label: "Dryer 12",
+            borderWidth: 3,
+            borderColor: "#000000",
+            fill: false,
+            hidden: true
+         },
+
+
+         ]
+      },
+      options: {
+         title: {
+            display: true,
+            text: 'Machine Stats for Year ' + year,
+            fontSize: '17',
+            fontColor: 'black',
+            fontStyle: 'normal',
+            fontFamily: 'Montserrat',
+         },
+         plugins: {
+            filler: {
+                propagate: true
+            }
+         },
+         scales: {
+            yAxes: [{
+                  display: true,
+                  ticks: {
+                      beginAtZero: true,
+                      steps: 1000,
+                      stepValue: 5,
+                  }
+              }],
+            xAxes: [{
+               ticks: {
+                  autoSkip: false
+               }
+            }]
+         },
+         responsive:true,
+         maintainAspectRatio: false,
+         legend: {
+            display: true
+         },
+       }
+   });
+
    var bar_ctx = document.getElementById('machines-used').getContext('2d');
    var washergradient = bar_ctx.createLinearGradient(0, 0, 0, 600);
    washergradient.addColorStop(0, '#786AF1');

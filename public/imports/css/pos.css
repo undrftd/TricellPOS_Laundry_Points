@@ -141,7 +141,7 @@ body{
     border-color: #2b2b2b!important;
     background-color: #c7c7c7 !important;
 }
- .btn.lpayment-btn {
+ .btn.lpayment-btn, .btn.ppayment-btn {
      padding: 0.35rem 1.7944rem !important;
      font-size: 1rem !important;
      word-wrap: break-word !important;
@@ -151,7 +151,7 @@ body{
      background-color: #2b2b2b!important;
      border-radius: 1.5rem;
 }
-.btn.lpayment-btn:hover {
+.btn.lpayment-btn:hover, .btn.ppayment-btn:hover {
      color: #2b2b2b!important;
     border-color: #2b2b2b!important;
     background-color: #c7c7c7 !important;

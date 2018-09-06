@@ -36,6 +36,8 @@ QUEUEING
         <tr>
             <th scope="col">Queue No.</th>
             <th scope="col">Customer Name</th>
+            <th scope="col">Washers</th> 
+            <th scope="col">Dryers</th>
             <th scope="col">Switch</th>   
         </tr>
       </thead>
@@ -49,7 +51,41 @@ QUEUEING
           @else
             {{ $queue->user->firstname . " " . $queue->user->lastname}}  
           @endif
-          </td class="td-center">
+          </td>
+          <td class="td-center">
+            @if($queue->salesdetails->where('product_id', '<=', 12)->count() > 0)
+              @if($queue->salesdetails->where('product_id', '<=', 12)->where('isUsed', '==', 0)->count() > 0)
+                @foreach($queue->salesdetails->where('product_id', '<=', 12)->where('isUsed', '==', 0)->sortBy('product_id') as $q)
+                  {{substr($q->product->product_name, strpos($q->product->product_name, " ") + 1)}}
+              
+                  @if($loop->iteration != $queue->salesdetails->where('product_id', '<=', 12)->where('isUsed', '==', 0)->count())
+                    {{", "}}
+                  @endif
+               @endforeach
+              @else
+                {{"All Orders Completed"}}
+              @endif
+            @else
+              {{ "No Washers Ordered" }}
+            @endif
+          </td>
+          <td class="td-center">
+            @if($queue->salesdetails->where('product_id', '>', 12)->where('product_id', '<=', 24)->count() > 0)
+              @if($queue->salesdetails->where('product_id', '>', 12)->where('product_id', '<=', 24)->where('isUsed', '==', 0)->count() > 0)
+                @foreach($queue->salesdetails->where('product_id', '>', 12)->where('product_id', '<=', 24)->where('isUsed', '==', 0)->sortBy('product_id') as $q)
+                  {{substr($q->product->product_name, strpos($q->product->product_name, " ") + 1)}}
+              
+                  @if($loop->iteration != $queue->salesdetails->where('product_id', '>', 12)->where('product_id', '<=', 24)->where('isUsed', '==', 0)->count())
+                    {{", "}}
+                  @endif
+               @endforeach
+              @else
+                {{"All Orders Completed"}}
+              @endif
+            @else
+              {{ "No Washers Ordered" }}
+            @endif
+          </td>
           <td>
             <button type="button" class="btn btn-success switch-btn" data-id="{{$queue->id}}"><i class="material-icons md-18">
 power_settings_new
@@ -112,6 +148,10 @@ power_settings_new
 </div>
 
 <script type="text/javascript">
+  $('.switch-modal').on('hide.bs.modal', function(){
+   window.location.reload();
+  });
+
   $(document).on('click', '.switch-btn', function() {
     $.ajax({
     type: 'POST',
@@ -150,6 +190,10 @@ power_settings_new
   $(document).on('click', '.switch__toggle', function() {
     $('.switch__toggle').attr('disabled', true);
 
+    $('.switch-modal').on('hide.bs.modal', function(e){
+      e.preventDefault();
+    });
+
     var switches = $('.service').find($('[data-id="'+ $(this).attr('data-id') +'"]'));
     var attr = $(this).attr('checked');
     var id = $(this).attr('data-id');
@@ -170,9 +214,6 @@ power_settings_new
       {
           if($('#switch' + id).is(':checked'))
           {  
-            // setTimeout(function() {
-            //   $('input[type=checkbox]').not('[data-isUsed="1"]').removeAttr('disabled');
-            // }, 2000);
             $('input[type=checkbox]').not('[data-isUsed="1"]').removeAttr('disabled');
           }
           else
@@ -180,9 +221,6 @@ power_settings_new
             $('#switch' + id).attr('data-isUsed', data.isUsed);
             $('#switch' + id).attr('disabled', true);
 
-            // setTimeout(function() {
-            //   $('input[type=checkbox]').not('[data-isUsed="1"]').not('#switch' + id).removeAttr('disabled');
-            // }, 2000);
             $('input[type=checkbox]').not('[data-isUsed="1"]').not('#switch' + id).removeAttr('disabled');
           } 
 
@@ -194,11 +232,13 @@ power_settings_new
       }
       else
       {
-        // setTimeout(function() {
-        //   $('input[type=checkbox]').not('[data-isUsed="1"]').removeAttr('disabled');
-        // }, 2000);
         $('input[type=checkbox]').not('[data-isUsed="1"]').removeAttr('disabled');
       }
+    
+      $('.switch-modal').off('hide.bs.modal');
+      $('.switch-modal').on('hide.bs.modal', function(e){
+        window.location.reload();
+      });
     },
     error: function(jqXHR, textStatus, errorThrown) { // What to do if we fail
       console.log(JSON.stringify(jqXHR));

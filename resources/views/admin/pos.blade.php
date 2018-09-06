@@ -117,6 +117,8 @@ BILLING
                   <td><button type="button" class="btn btn-secondary float-right payment-btn">Cash Payment</button></td>
                   <td>
                   <button type="button" class="btn btn-secondary  lpayment-btn">Load Payment</button></td>
+                  <td>
+                  <button type="button" class="btn btn-secondary  ppayment-btn">Points Payment</button>
                   </td>
               </tr>
             </tbody>
@@ -247,6 +249,64 @@ BILLING
               </div>
             </div>
           </div>
+
+          <!----start of modal for load payment---->
+          <div class="modal fade ppayment" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Points Payment</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                
+                <form>
+                  <div class="form-group">
+                    <div class="container-fluid">
+                      <br>
+                      <div class="form-group row mx-auto">
+                        <label for="currentpoints" class="col-form-label col-sm-5 modal-pay">Current Points:</label>
+
+                          <div class="col-sm-7">
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                  <span class="input-group-text" id="basic-addon-currentpoints-card">₱</span>
+                              </div>
+                              <input type="text" name="paymentamount" class="form-control modal-add" id="current-points-card" disabled="disabled">
+                            </div>
+                            <p id="error-current-points-card" class="error-pos" hidden="hidden"></p>
+                          </div>
+                        </div>
+
+                        <div class="form-group row mx-auto">
+                        <label for="pointspay" class="col-form-label col-sm-5 modal-pay">Amount to Pay:</label>
+
+                          <div class="col-sm-7">
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                  <span class="input-group-text" id="basic-addon-pointspay-card">₱</span>
+                              </div>
+                              <input type="text" name="paymentamount" class="form-control modal-add" id="pointspay-card" disabled="disabled">
+                            </div>
+                            <p id="error-pointspay-card" class="error-pos" hidden="hidden"></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  
+                  <div class="col-7 offset-3">
+                    <span id="lowpoints" class="low_stock text-center" hidden="hidden">You have insufficient points!</span>
+                  </div>
+                  
+                </form>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-info btn-savemem-modal" id="paypoints">Pay</button>
+                  <button type="button" class="btn btn-secondary btn-close-modal" data-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
           
           <!----end of modal---->
           <!----start of modal for reload---->
@@ -358,6 +418,7 @@ BILLING
 
        <input type="hidden" id="discountvalue" value="0"> 
        <input type="hidden" id="memberload" value="">
+       <input type="hidden" id="memberpoints" value="">
        <input type="hidden" id="memberid" value="">
        <input type="hidden" id="membercardno" value="">
        <input type="hidden" id="posvat" value="{{floatval($vat->vat)}}">
@@ -663,6 +724,7 @@ BILLING
     if (type === "Member") 
     {
       $('.lpayment-btn').show();
+      $('.ppayment-btn').show();
       $('.payment-btn').hide();
       if($("#member").not(':visible')) 
       {
@@ -681,6 +743,7 @@ BILLING
     } 
     else 
     {
+      $('.ppayment-btn').hide();
       $('.lpayment-btn').hide();
       $('.payment-btn').show();
       $("#member").hide();
@@ -806,6 +869,118 @@ BILLING
         button: "Close",
       });
     } 
+  });
+
+  $(document).on('click', '.ppayment-btn', function()
+  {
+    var rowcount = $('#display_table tbody').find('tr').length;
+    var member_input = $('#member_input').val();
+    var member_name = $('#membername').text();
+
+    if(rowcount > 0)
+    {
+      if(member_name == '' && member_input == '')
+      {
+        swal({
+              title: "Error!",
+              text: "Please tap the customer card first!",
+              icon: "error",
+              button: "Close",
+            });
+
+        $('#member_input').css("border", "1px solid #cc0000");
+        for(var i = 0; i < 3; i++)
+        {
+          $('#member_input').fadeOut().fadeIn('slow');
+        }
+      }
+      else if(member_name == '' && member_input != '')
+      {
+        swal({
+              title: "Error!",
+              text: "Please double check the card number!",
+              icon: "error",
+              button: "Close",
+            });
+
+        $('#member_input').css("border", "1px solid #cc0000");
+        for(var i = 0; i < 3; i++)
+        {
+          $('#member_input').fadeOut().fadeIn('slow');
+        }
+      }
+      else
+      {
+        $('#member_input').removeAttr('style');
+        $('.ppayment').modal('show');
+
+        var currentpoints = parseFloat($('#memberpoints').val());
+        var amount = parseFloat($('.totalprice').text());
+
+        $('#current-points-card').val(currentpoints.toFixed(2));
+        $('#pointspay-card').val(amount.toFixed(2));
+
+
+        if(currentpoints < amount)
+        {
+          $('#lowpoints').removeAttr('hidden');
+          $('#paypoints').attr('hidden', true);
+        }
+        else
+        {
+          $('#lowpoints').attr('hidden', true);
+          $('#paypoints').removeAttr('hidden');
+        }  
+      }
+    }
+    else
+    {
+      $('#guest_input').removeAttr('style');
+      $('#member_input').removeAttr('style');
+      swal({
+        title: "Error!",
+        text: "You must select an item first!",
+        icon: "error",
+        button: "Close",
+      });
+    } 
+  });
+
+  $(document).on('click', '#paypoints', function(){
+    var itemsBought = [];
+    $("#display_table .itemrow").each(function() { 
+        var arrayOfThisRow = [];
+        var desc = $(this).find('.description').text();
+        var id = $('#mirror-pos').find($('[data-description="'+ desc +'"]')).attr('data-id');
+        var qty = $(this).find('.quantity');
+        var price = $(this).find('.itemprice');
+        var subtotal = $(this).find('.itemsubtotal');
+
+        arrayOfThisRow.push(id,qty.val(),price.text(), subtotal.text()); 
+        itemsBought.push(arrayOfThisRow);
+    });
+
+    $.ajax({
+      type: 'POST',
+      url: '/sales/member_pointspayment',
+      data: {
+              '_token': $('input[name=_token]').val(),
+              'member_id': $("#memberid").val(),
+              'discount_id': $('#discountvalue').attr('discount_id'),
+              'amount_paid': $("#pointspay-card").val(),
+              'current_points': $("#current-points-card").val(),
+              'vat': $("#posvat").val(),
+              'itemsbought': itemsBought
+            },
+      success: function(data) {
+        localStorage.setItem("sold","success");
+        window.location.reload();
+      },
+      error: function(jqXHR, textStatus, errorThrown) { // What to do if we fail
+        console.log(JSON.stringify(jqXHR));
+        console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+      }
+    });
   });
 
   $(document).on('click', '#payload', function(){
@@ -1208,11 +1383,13 @@ BILLING
                   var card_number = parser.card_number;
                   var fullname = parser.firstname + " " + parser.lastname;
                   var load = parser.balance.load_balance;
+                  var points = parser.balance.points_balance;
                   return {
                       label: card_number,
                       id: id,
                       fullname: fullname,
-                      load: load
+                      load: load,
+                      points: points
                   }
                 }));
             },
@@ -1231,6 +1408,7 @@ BILLING
         $('#membername').text(ui.item.fullname);
         $('#memberspanload').text('₱ ' + ui.item.load);
         $('#memberload').val(ui.item.load);
+        $('#memberpoints').val(ui.item.points);
         // compute_discount();
         align_price();
       }

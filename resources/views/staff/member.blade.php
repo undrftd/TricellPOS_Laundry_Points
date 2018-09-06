@@ -60,6 +60,7 @@ ACCOUNTS
           <th scope="col">Name</th>
           <th scope="col">Contact No.</th>
           <th scope="col">Load</th>
+          <th scope="col">Points</th>
           <th scope="col" colspan="2">Actions</th>
         </tr>
       </thead>
@@ -70,6 +71,7 @@ ACCOUNTS
           <td class="td-center"> {{$member->firstname . " " . $member->lastname}}</td>
           <td class="td-center">{{$member->contact_number}}</td>
           <td class="td-center">₱ {{$member->balance->load_balance}}</td>
+          <td class="td-center">{{$member->balance->points_balance}}</td>
           <td>
           	<button type="button" id="edit-member" class="btn btn-primary edit-btn" data-toggle="modal" data-target=".edit_member" data-id="{{ $member->id }}" data-cardnumber ="{{ $member->card_number }}" data-firstname="{{$member->firstname}}" data-lastname="{{$member->lastname}}" data-address="{{$member->address}}" data-contact="{{$member->contact_number}}" data-email="{{$member->email}}"><i class="material-icons md-18">mode_edit</i></button>
             <button type="button" id="reload-member" class="btn btn-success edit-btn" data-toggle="modal" data-target=".reload_member" data-id="{{$member->id}}" data-load="{{$member->balance->load_balance}}" data-points="{{$member->balance->points}}"><i class="pp-reload"></i></button>
