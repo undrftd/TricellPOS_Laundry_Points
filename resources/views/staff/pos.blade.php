@@ -100,7 +100,8 @@ BILLING
 
             <i class="material-icons" id="faces">credit_card</i>
             <p id="member-name">&nbsp;<span id="memberspanload"></span></p>
-            
+            <i class="material-icons icon-align-right" id="date_range">stars</i>
+            <p  align="right" id="date">&nbsp;<span id="memberspanpoints"></span></p>
           </div>
           
           <div class="row" id="guest">
@@ -734,6 +735,7 @@ BILLING
         $('#memberid').val('');
         $('#membername').text('');
         $('#memberspanload').text('');
+        $('#memberspanpoints').text('');
         $('#member_input').val('');
         $('#guest_input').val('');
         $('#member_input').removeAttr('style');
@@ -752,6 +754,7 @@ BILLING
       $('#memberid').val('');
       $('#membername').text('');
       $('#memberspanload').text('');
+      $('#memberspanpoints').text('');
       $('#member_input').val('');
       $('#guest_input').val('');
       $('#member_input').removeAttr('style');
@@ -1407,6 +1410,7 @@ BILLING
         $('#membercardno').val(ui.item.label);
         $('#membername').text(ui.item.fullname);
         $('#memberspanload').text('₱ ' + ui.item.load);
+        $('#memberspanpoints').text('₱ ' + ui.item.points);
         $('#memberload').val(ui.item.load);
         $('#memberpoints').val(ui.item.points);
         // compute_discount();
@@ -1423,6 +1427,7 @@ BILLING
       $('#memberid').val('');
       $('#membername').text('');
       $('#memberspanload').text('');
+      $('#memberspanpoints').text('');
       align_price();
     }
   });
