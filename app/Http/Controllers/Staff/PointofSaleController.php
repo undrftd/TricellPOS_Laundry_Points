@@ -76,7 +76,7 @@ class PointofSaleController extends Controller
                 'sales_id' => $sale->id,
                 'product_id' => $itemsBought[$i][$y],
                 'quantity' => $itemsBought[$i][++$y],
-                'subtotal' => $itemsBought[$i][++$y],
+                'subtotal' => $itemsBought[$i][++$y] * $itemsBought[$i][--$y],
                 ];
             }
         Sales_details::insert($sales_details);
@@ -96,6 +96,10 @@ class PointofSaleController extends Controller
 
     public function member_loadpayment(Request $request)
     {
+        $balance = Balance::find($request->member_id);
+        $balance->load_balance = $request->current_load - $request->amount_paid;
+        $balance->save();
+
         $sale = new Sale;
         $sale->member_id = $request->member_id;
         $sale->guest_id = 0;
@@ -104,6 +108,7 @@ class PointofSaleController extends Controller
         $sale->amount_paid = $request->amount_paid;
         $sale->change_amount = 0;
         $sale->payment_mode = 'card load';
+        $sale->remaining_balance = $balance->load_balance;
         $sale->vat = $request->vat;
         $sale->staff_name = Auth::user()->id;   
         $sale->save();
@@ -115,10 +120,6 @@ class PointofSaleController extends Controller
 
         $itemsBought = $request->itemsbought;
         $count = count($itemsBought);
-
-        $balance = Balance::find($request->member_id);
-        $balance->load_balance = $request->current_load - $request->amount_paid;
-        $balance->save();
         
         for($i= 0; $i < $count; $i++){
             $y=0;
@@ -146,6 +147,10 @@ class PointofSaleController extends Controller
 
     public function member_pointspayment(Request $request)
     {
+        $balance = Balance::find($request->member_id);
+        $balance->points_balance = $request->current_points - $request->amount_paid;
+        $balance->save();
+
         $sale = new Sale;
         $sale->member_id = $request->member_id;
         $sale->guest_id = 0;
@@ -154,16 +159,13 @@ class PointofSaleController extends Controller
         $sale->amount_paid = $request->amount_paid;
         $sale->change_amount = 0;
         $sale->payment_mode = 'points';
+        $sale->remaining_balance = $balance->points_balance;
         $sale->vat = $request->vat;
         $sale->staff_name = Auth::user()->id;   
         $sale->save();
 
         $itemsBought = $request->itemsbought;
         $count = count($itemsBought);
-
-        $balance = Balance::find($request->member_id);
-        $balance->points_balance = $request->current_points - $request->amount_paid;
-        $balance->save();
         
         for($i= 0; $i < $count; $i++){
             $y=0;

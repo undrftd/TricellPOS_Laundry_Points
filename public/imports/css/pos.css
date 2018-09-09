@@ -127,30 +127,40 @@ body{
      background-color: #fdfdfe !important;
 }
  .btn.payment-btn {
-     padding: 0.35rem 1.7944rem !important;
-     font-size: 1rem !important;
+    margin-top:0.5rem !important;
+    padding: 0.6rem 4rem !important;
+     font-size: 0.568rem !important;
      word-wrap: break-word !important;
      white-space: normal !important;
      color:white!important;
      border-color:#2b2b2b!important;
-     background-color: #2b2b2b!important;
-     border-radius: 1.5rem;
+     background-color: #2b2b2b !important;
+     border-radius: 1.2rem;
+     text-transform: uppercase!important;
+     font-weight:bold !important;
+ 
 }
+
 .btn.payment-btn:hover {
     color: #2b2b2b!important;
     border-color: #2b2b2b!important;
     background-color: #c7c7c7 !important;
 }
- .btn.lpayment-btn, .btn.ppayment-btn {
-     padding: 0.35rem 1.7944rem !important;
-     font-size: 1rem !important;
+
+.btn.lpayment-btn, .btn.ppayment-btn {
+    padding: 0.6rem 1.6rem !important;
+     font-size: 0.5rem !important;
      word-wrap: break-word !important;
      white-space: normal !important;
      color:white!important;
      border-color:#2b2b2b!important;
-     background-color: #2b2b2b!important;
-     border-radius: 1.5rem;
+     background-color: #2b2b2b;
+     border-radius: 1.2rem;
+     text-transform: uppercase!important;
+     font-weight:bold !important;
+     
 }
+
 .btn.lpayment-btn:hover, .btn.ppayment-btn:hover {
      color: #2b2b2b!important;
     border-color: #2b2b2b!important;
@@ -402,3 +412,23 @@ display: none !important;
 /*#display_table td, #display_table th{
     text-align: center !important;
 }*/
+
+@media 
+  (max-device-width: 1280px) 
+  and (orientation: landscape) { 
+ .btn.med-lpayment, .btn.med-ppayment {
+    margin-top:0.5rem !important ;
+    padding: 0.5rem 1.15rem !important;
+     font-size: 0.5rem !important;
+     word-wrap: break-word !important;
+     white-space: normal !important;
+     color:white!important;
+     border-color:#2b2b2b!important;
+     background-color: #2b2b2b;
+     border-radius: 1.2rem;
+     text-transform: uppercase!important;
+     font-weight:bold !important;
+}
+
+
+}

@@ -58,7 +58,7 @@
         <td>{{$details->product->product_name}}</td>
         <td>{{$details->quantity}}</td>
         <td>{{$details->product->price}}</td>
-        <td class="totalprice">{{number_format($details->subtotal * $details->quantity,2, '.', '')}}</td>
+        <td class="totalprice">{{number_format($details->subtotal,2, '.', '')}}</td>
       </tr>
     @endforeach
 
@@ -152,12 +152,35 @@
         <td></td>
         <td>{{number_format($sales->change_amount,2, '.', '')}} <span class="change"></span></td>
       </tr>
+    @elseif($sales->payment_mode == 'points')
+      <tr>
+        <td>Points Deducted</td>
+        <td></td>
+        <td></td>
+        <td>{{number_format($sales->amount_paid,2, '.', '')}}<span class="payment"></span></span></td>
+      </tr>
     @else
       <tr>
         <td>Load Deducted</td>
         <td></td>
         <td></td>
         <td>{{number_format($sales->amount_paid,2, '.', '')}}<span class="payment"></span></span></td>
+      </tr>
+    @endif
+
+    @if($sales->payment_mode == 'card load')
+      <tr>
+        <td>Load Remaining</td>
+        <td></td>
+        <td></td>
+        <td>{{number_format($sales->remaining_balance,2, '.', '')}}<span class="payment"></span></span></td>
+      </tr>
+    @elseif($sales->payment_mode == 'points')
+      <tr>
+        <td>Points Remaining</td>
+        <td></td>
+        <td></td>
+        <td>{{number_format($sales->remaining_balance,2, '.', '')}}<span class="payment"></span></span></td>
       </tr>
     @endif
 

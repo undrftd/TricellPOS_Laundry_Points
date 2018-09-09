@@ -114,7 +114,7 @@ BILLING
             <table class="table">
               <tbody>
                 <tr>
-                  <th scope="row"  style="width: 60%" id="total"></th>
+                  <th scope="row"  style="width: 50%" id="total"></th>
                   <td><button type="button" class="btn btn-secondary float-right payment-btn">Cash Payment</button></td>
                   <td>
                   <button type="button" class="btn btn-secondary  lpayment-btn">Load Payment</button></td>
