@@ -108,3 +108,10 @@
 .label-product2, .label-total2{
      color: #707982 !important;
 }
+
+table {
+    width: 100%;
+}
+td {
+     height: 30px;
+}

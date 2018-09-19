@@ -99,9 +99,232 @@ DASHBOARD
 
     <div class="row">
       <div class="col m-1 border" id="top-products">
-        <canvas id="machines-used">
-        </canvas>
-      </div> 
+        <center><h6>Machine Cycle Statistics</h6></center>
+        <div class="col-md-12">
+          <div class="row">
+            <div class="btn-group mx-auto">
+              <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                1 Week
+              </button>
+              <div class="dropdown-menu">
+                <li class="dropdown-item">1 Week</li>
+                <li class="dropdown-item">1 Month</li>
+                <li class="dropdown-item">1 Year</li>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        
+        <div class="col-md-12">
+          <div class="row">
+            <table class="oneweek">
+              <tr>
+                <th class="text-center label-product">Machine Number</th>
+                <th class="text-center label-total">Washer Count</th>
+                <th class="text-center label-total">Dryer Count</th>
+              </tr>
+              <tr>
+                <td class="text-center">1</td>
+                <td class="text-center"><?php echo ($washerOneStats_weekly === null) ? 0 : $washerOneStats_weekly ?></td>
+                <td class="text-center"><?php echo ($dryerOneStats_weekly === null) ? 0 : $dryerOneStats_weekly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">2</td>
+                <td class="text-center"><?php echo ($washerTwoStats_weekly === null) ? 0 : $washerTwoStats_weekly ?></td>
+                <td class="text-center"><?php echo ($dryerTwoStats_weekly === null) ? 0 : $dryerTwoStats_weekly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">3</td>
+                <td class="text-center"><?php echo ($washerThreeStats_weekly === null) ? 0 : $washerThreeStats_weekly ?></td>
+                <td class="text-center"><?php echo ($dryerThreeStats_weekly === null) ? 0 : $dryerThreeStats_weekly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">4</td>
+                <td class="text-center"><?php echo ($washerFourStats_weekly === null) ? 0 : $washerFourStats_weekly ?></td>
+                <td class="text-center"><?php echo ($dryerFourStats_weekly === null) ? 0 : $dryerFourStats_weekly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">5</td>
+                <td class="text-center"><?php echo ($washerFiveStats_weekly === null) ? 0 : $washerFiveStats_weekly ?></td>
+                <td class="text-center"><?php echo ($dryerFiveStats_weekly === null) ? 0 : $dryerFiveStats_weekly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">6</td>
+                <td class="text-center"><?php echo ($washerSixStats_weekly === null) ? 0 : $washerSixStats_weekly ?></td>
+                <td class="text-center"><?php echo ($dryerSixStats_weekly === null) ? 0 : $dryerSixStats_weekly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">7</td>
+                <td class="text-center"><?php echo ($washerSevenStats_weekly === null) ? 0 : $washerSevenStats_weekly ?></td>
+                <td class="text-center"><?php echo ($dryerSevenStats_weekly === null) ? 0 : $dryerSevenStats_weekly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">8</td>
+                <td class="text-center"><?php echo ($washerEightStats_weekly === null) ? 0 : $washerEightStats_weekly ?></td>
+                <td class="text-center"><?php echo ($dryerEightStats_weekly === null) ? 0 : $dryerEightStats_weekly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">9</td>
+                <td class="text-center"><?php echo ($washerNineStats_weekly === null) ? 0 : $washerNineStats_weekly ?></td>
+                <td class="text-center"><?php echo ($dryerNineStats_weekly === null) ? 0 : $dryerNineStats_weekly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">10</td>
+                <td class="text-center"><?php echo ($washerTenStats_weekly === null) ? 0 : $washerTenStats_weekly ?></td>
+                <td class="text-center"><?php echo ($dryerTenStats_weekly === null) ? 0 : $dryerTenStats_weekly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">11</td>
+                <td class="text-center"><?php echo ($washerElevenStats_weekly === null) ? 0 : $washerElevenStats_weekly ?></td>
+                <td class="text-center"><?php echo ($dryerElevenStats_weekly === null) ? 0 : $dryerElevenStats_weekly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">12</td>
+                <td class="text-center"><?php echo ($washerTwelveStats_weekly === null) ? 0 : $washerTwelveStats_weekly ?></td>
+                <td class="text-center"><?php echo ($dryerTwelveStats_weekly === null) ? 0 : $dryerTwelveStats_weekly ?></td>
+              </tr>
+            </table>
+
+
+            <table class="onemonth">
+              <tr>
+                <th class="text-center">Machine Number</th>
+                <th class="text-center label-total">Washer Count</th>
+                <th class="text-center label-total">Dryer Count</th>
+              </tr>
+              <tr>
+                <td class="text-center">1</td>
+                <td class="text-center"><?php echo ($washerOneStats_monthly === null) ? 0 : $washerOneStats_monthly ?></td>
+                <td class="text-center"><?php echo ($dryerOneStats_monthly === null) ? 0 : $dryerOneStats_monthly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">2</td>
+                <td class="text-center"><?php echo ($washerTwoStats_monthly === null) ? 0 : $washerTwoStats_monthly ?></td>
+                <td class="text-center"><?php echo ($dryerTwoStats_monthly === null) ? 0 : $dryerTwoStats_monthly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">3</td>
+                <td class="text-center"><?php echo ($washerThreeStats_monthly === null) ? 0 : $washerThreeStats_monthly ?></td>
+                <td class="text-center"><?php echo ($dryerThreeStats_monthly === null) ? 0 : $dryerThreeStats_monthly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">4</td>
+                <td class="text-center"><?php echo ($washerFourStats_monthly === null) ? 0 : $washerFourStats_monthly ?></td>
+                <td class="text-center"><?php echo ($dryerFourStats_monthly === null) ? 0 : $dryerFourStats_monthly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">5</td>
+                <td class="text-center"><?php echo ($washerFiveStats_monthly === null) ? 0 : $washerFiveStats_monthly ?></td>
+                <td class="text-center"><?php echo ($dryerFiveStats_monthly === null) ? 0 : $dryerFiveStats_monthly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">6</td>
+                <td class="text-center"><?php echo ($washerSixStats_monthly === null) ? 0 : $washerSixStats_monthly ?></td>
+                <td class="text-center"><?php echo ($dryerSixStats_monthly === null) ? 0 : $dryerSixStats_monthly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">7</td>
+                <td class="text-center"><?php echo ($washerSevenStats_monthly === null) ? 0 : $washerSevenStats_monthly ?></td>
+                <td class="text-center"><?php echo ($dryerSevenStats_monthly === null) ? 0 : $dryerSevenStats_monthly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">8</td>
+                <td class="text-center"><?php echo ($washerEightStats_monthly === null) ? 0 : $washerEightStats_monthly ?></td>
+                <td class="text-center"><?php echo ($dryerEightStats_monthly === null) ? 0 : $dryerEightStats_monthly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">9</td>
+                <td class="text-center"><?php echo ($washerNineStats_monthly === null) ? 0 : $washerNineStats_monthly ?></td>
+                <td class="text-center"><?php echo ($dryerNineStats_monthly === null) ? 0 : $dryerNineStats_monthly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">10</td>
+                <td class="text-center"><?php echo ($washerTenStats_monthly === null) ? 0 : $washerTenStats_monthly ?></td>
+                <td class="text-center"><?php echo ($dryerTenStats_monthly === null) ? 0 : $dryerTenStats_monthly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">11</td>
+                <td class="text-center"><?php echo ($washerElevenStats_monthly === null) ? 0 : $washerElevenStats_monthly ?></td>
+                <td class="text-center"><?php echo ($dryerElevenStats_monthly === null) ? 0 : $dryerElevenStats_monthly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">12</td>
+                <td class="text-center"><?php echo ($washerTwelveStats_monthly === null) ? 0 : $washerTwelveStats_monthly ?></td>
+                <td class="text-center"><?php echo ($dryerTwelveStats_monthly === null) ? 0 : $dryerTwelveStats_monthly ?></td>
+              </tr>
+            </table>
+
+            <table class="oneyear">
+              <tr>
+                <th class="text-center">Machine Number</th>
+                <th class="text-center label-total">Washer Count</th>
+                <th class="text-center label-total">Dryer Count</th>
+              </tr>
+              <tr>
+                <td class="text-center">1</td>
+                <td class="text-center"><?php echo ($washerOneStats_yearly === null) ? 0 : $washerOneStats_yearly ?></td>
+                <td class="text-center"><?php echo ($dryerOneStats_yearly === null) ? 0 : $dryerOneStats_yearly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">2</td>
+                <td class="text-center"><?php echo ($washerTwoStats_yearly === null) ? 0 : $washerTwoStats_yearly ?></td>
+                <td class="text-center"><?php echo ($dryerTwoStats_yearly === null) ? 0 : $dryerTwoStats_yearly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">3</td>
+                <td class="text-center"><?php echo ($washerThreeStats_yearly === null) ? 0 : $washerThreeStats_yearly ?></td>
+                <td class="text-center"><?php echo ($dryerThreeStats_yearly === null) ? 0 : $dryerThreeStats_yearly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">4</td>
+                <td class="text-center"><?php echo ($washerFourStats_yearly === null) ? 0 : $washerFourStats_yearly ?></td>
+                <td class="text-center"><?php echo ($dryerFourStats_yearly === null) ? 0 : $dryerFourStats_yearly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">5</td>
+                <td class="text-center"><?php echo ($washerFiveStats_yearly === null) ? 0 : $washerFiveStats_yearly ?></td>
+                <td class="text-center"><?php echo ($dryerFiveStats_yearly === null) ? 0 : $dryerFiveStats_yearly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">6</td>
+                <td class="text-center"><?php echo ($washerSixStats_yearly === null) ? 0 : $washerSixStats_yearly ?></td>
+                <td class="text-center"><?php echo ($dryerSixStats_yearly === null) ? 0 : $dryerSixStats_yearly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">7</td>
+                <td class="text-center"><?php echo ($washerSevenStats_yearly === null) ? 0 : $washerSevenStats_yearly ?></td>
+                <td class="text-center"><?php echo ($dryerSevenStats_yearly === null) ? 0 : $dryerSevenStats_yearly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">8</td>
+                <td class="text-center"><?php echo ($washerEightStats_yearly === null) ? 0 : $washerEightStats_yearly ?></td>
+                <td class="text-center"><?php echo ($dryerEightStats_yearly === null) ? 0 : $dryerEightStats_yearly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">9</td>
+                <td class="text-center"><?php echo ($washerNineStats_yearly === null) ? 0 : $washerNineStats_yearly ?></td>
+                <td class="text-center"><?php echo ($dryerNineStats_yearly === null) ? 0 : $dryerNineStats_yearly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">10</td>
+                <td class="text-center"><?php echo ($washerTenStats_yearly === null) ? 0 : $washerTenStats_yearly ?></td>
+                <td class="text-center"><?php echo ($dryerTenStats_yearly === null) ? 0 : $dryerTenStats_yearly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">11</td>
+                <td class="text-center"><?php echo ($washerElevenStats_yearly === null) ? 0 : $washerElevenStats_yearly ?></td>
+                <td class="text-center"><?php echo ($dryerElevenStats_yearly === null) ? 0 : $dryerElevenStats_yearly ?></td>
+              </tr>
+              <tr>
+                <td class="text-center">12</td>
+                <td class="text-center"><?php echo ($washerTwelveStats_yearly === null) ? 0 : $washerTwelveStats_yearly ?></td>
+                <td class="text-center"><?php echo ($dryerTwelveStats_yearly === null) ? 0 : $dryerTwelveStats_yearly ?></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
 
       <div class="col m-1 border" id="sales-payment">
         <canvas id="payment-mode">
@@ -145,6 +368,30 @@ DASHBOARD
 </div>
 
 <script type="text/javascript">
+  $(document).ready(function(){
+    $('.onemonth').hide();
+    $('.oneyear').hide();
+  });
+
+  $(".dropdown-menu li").click(function(){
+    var selText = $(this).text();
+    $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+
+    if(selText === '1 Month') {
+      $('.onemonth').show();
+      $('.oneweek').hide();
+      $('.oneyear').hide();
+    } else if(selText === '1 Week') {
+      $('.oneweek').show();
+      $('.onemonth').hide();
+      $('.oneyear').hide();
+    } else if(selText === '1 Year') {
+      $('.oneyear').show();
+      $('.oneweek').hide();
+      $('.onemonth').hide();
+    }
+  });
+
    var bar_ctx = document.getElementById('machinestat').getContext('2d');
    var areagradient = bar_ctx.createLinearGradient(0, 0, 0, 450);
    areagradient.addColorStop(0, '#3BD0C0');
@@ -353,7 +600,7 @@ DASHBOARD
       options: {
          title: {
             display: true,
-            text: 'Machine Stats for Year ' + year,
+            text: 'Machine Statistics for Year ' + year,
             fontSize: '17',
             fontColor: 'black',
             fontStyle: 'normal',
@@ -385,58 +632,6 @@ DASHBOARD
             display: true
          },
        }
-   });
-
-   var bar_ctx = document.getElementById('machines-used').getContext('2d');
-   var washergradient = bar_ctx.createLinearGradient(0, 0, 0, 600);
-   washergradient.addColorStop(0, '#786AF1');
-   washergradient.addColorStop(1, '#66ca72');
-
-   var dryergradient = bar_ctx.createLinearGradient(0, 0, 0, 600);
-   dryergradient.addColorStop(0, '#786AF1');
-   dryergradient.addColorStop(1, '#eb5757');
-
-   var washer_use = <?php echo $washer_use; ?>;
-   var dryer_use = <?php echo $dryer_use; ?>;
-   new Chart(document.getElementById("machines-used"), {
-    type: 'bar',
-    data: {
-      labels: ["Washers", "Dryers"],
-      datasets: [
-        {
-          backgroundColor: [washergradient, dryergradient],
-          hoverBackgroundColor: [washergradient, dryergradient],
-          hoverBorderWidth: 2,
-          hoverBorderColor: [washergradient, dryergradient],
-          data: [washer_use,dryer_use]
-        }
-      ]
-    },
-    options: {
-      scales: {
-         yAxes: [{
-                  display: true,
-                  stacked: true,
-                  ticks: {
-                      min: 0, // minimum value
-                      max: 12 // maximum value
-                  }
-         }]
-      },
-      title: {
-         display: true,
-         text: 'Machines in Use',
-         fontSize: '16',
-         fontColor: 'black',
-         fontStyle: 'normal',
-         fontFamily: 'Montserrat',
-      },
-      responsive:true,
-      maintainAspectRatio: false,
-      legend: {
-        display: false
-      },
-    }
    });
 
    var bar_ctx = document.getElementById('payment-mode').getContext('2d');

@@ -59,10 +59,6 @@ class DashboardController extends Controller
        
         $yearsales = array($jan, $feb, $mar, $apr, $may, $jun, $jul, $aug, $sep, $oct, $nov, $dec);
 
-        //machines in use
-        $washer_use = DB::table('products')->where('switch', 1)->where('product_id', '<=', 12)->count();
-        $dryer_use = DB::table('products')->where('switch', 1)->where('product_id', '>', 12)->count();
-
         //machine stats washer one
         $washerOneStats_jan = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
             $query->whereRaw("(DATE_FORMAT(transaction_date, '%M') = 'January')")->whereRaw("(DATE_FORMAT(transaction_date, '%Y') = '$yearnow')");
@@ -1023,6 +1019,332 @@ class DashboardController extends Controller
 
         $dryerTwelveStats = array($dryerTwelveStats_jan, $dryerTwelveStats_feb, $dryerTwelveStats_mar, $dryerTwelveStats_apr, $dryerTwelveStats_may, $dryerTwelveStats_jun, $dryerTwelveStats_jul, $dryerTwelveStats_aug, $dryerTwelveStats_sep, $dryerTwelveStats_oct, $dryerTwelveStats_nov, $dryerTwelveStats_dec);
 
+        //machine one cycle weekly
+        $washerOneStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 1)->pluck('SUM(used)')->first();
+
+        $dryerOneStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 13)->pluck('SUM(used)')->first();
+
+        //machine two cycle weekly
+        $washerTwoStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 2)->pluck('SUM(used)')->first();
+
+        $dryerTwoStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 14)->pluck('SUM(used)')->first();
+
+        //machine three cycle weekly
+        $washerThreeStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 3)->pluck('SUM(used)')->first();
+
+        $dryerThreeStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 15)->pluck('SUM(used)')->first();
+
+        //machine Four cycle weekly
+        $washerFourStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 4)->pluck('SUM(used)')->first();
+
+        $dryerFourStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 16)->pluck('SUM(used)')->first();
+
+        //machine Five cycle weekly
+        $washerFiveStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 5)->pluck('SUM(used)')->first();
+
+        $dryerFiveStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 17)->pluck('SUM(used)')->first();
+
+        //machine Six cycle weekly
+        $washerSixStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 6)->pluck('SUM(used)')->first();
+
+        $dryerSixStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 18)->pluck('SUM(used)')->first();
+
+        //machine Seven cycle weekly
+        $washerSevenStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 7)->pluck('SUM(used)')->first();
+
+        $dryerSevenStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 19)->pluck('SUM(used)')->first();
+
+        //machine Eight cycle weekly
+        $washerEightStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 8)->pluck('SUM(used)')->first();
+
+        $dryerEightStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 20)->pluck('SUM(used)')->first();
+
+        //machine Nine cycle weekly
+        $washerNineStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 9)->pluck('SUM(used)')->first();
+
+        $dryerNineStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 21)->pluck('SUM(used)')->first();
+
+        //machine Ten cycle weekly
+        $washerTenStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 10)->pluck('SUM(used)')->first();
+
+        $dryerTenStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 22)->pluck('SUM(used)')->first();
+
+        //machine Eleven cycle weekly
+        $washerElevenStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 11)->pluck('SUM(used)')->first();
+
+        $dryerElevenStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 23)->pluck('SUM(used)')->first();
+
+        //machine Twelve cycle weekly
+        $washerTwelveStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 12)->pluck('SUM(used)')->first();
+
+        $dryerTwelveStats_weekly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where('transaction_date', '>', Carbon::now()->subDays(7));
+        })->where('product_id', '=', 24)->pluck('SUM(used)')->first();
+
+        //machine One cycle monthly
+        $washerOneStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 1)->pluck('SUM(used)')->first();
+
+        $dryerOneStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 13)->pluck('SUM(used)')->first();
+
+        //machine Two cycle monthly
+        $washerTwoStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 2)->pluck('SUM(used)')->first();
+
+        $dryerTwoStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 14)->pluck('SUM(used)')->first();
+
+        //machine Three cycle monthly
+        $washerThreeStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 3)->pluck('SUM(used)')->first();
+
+        $dryerThreeStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 15)->pluck('SUM(used)')->first();
+
+        //machine Four cycle monthly
+        $washerFourStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 4)->pluck('SUM(used)')->first();
+
+        $dryerFourStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 16)->pluck('SUM(used)')->first();
+
+        //machine Five cycle monthly
+        $washerFiveStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 5)->pluck('SUM(used)')->first();
+
+        $dryerFiveStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 17)->pluck('SUM(used)')->first();
+
+        //machine Six cycle monthly
+        $washerSixStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 6)->pluck('SUM(used)')->first();
+
+        $dryerSixStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 18)->pluck('SUM(used)')->first();
+
+        //machine Seven cycle monthly
+        $washerSevenStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 7)->pluck('SUM(used)')->first();
+
+        $dryerSevenStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 19)->pluck('SUM(used)')->first();
+
+        //machine Eight cycle monthly
+        $washerEightStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 8)->pluck('SUM(used)')->first();
+
+        $dryerEightStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 20)->pluck('SUM(used)')->first();
+
+        //machine Nine cycle monthly
+        $washerNineStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 9)->pluck('SUM(used)')->first();
+
+        $dryerNineStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 21)->pluck('SUM(used)')->first();
+
+        //machine Ten cycle monthly
+        $washerTenStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 10)->pluck('SUM(used)')->first();
+
+        $dryerTenStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 22)->pluck('SUM(used)')->first();
+
+        //machine Eleven cycle monthly
+        $washerElevenStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 11)->pluck('SUM(used)')->first();
+
+        $dryerElevenStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 23)->pluck('SUM(used)')->first();
+
+        //machine Twelve cycle monthly
+        $washerTwelveStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 12)->pluck('SUM(used)')->first();
+
+        $dryerTwelveStats_monthly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%M'))"), '=', Carbon::now()->format('F'))->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 24)->pluck('SUM(used)')->first();
+
+         //machine One cycle yearly
+        $washerOneStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 1)->pluck('SUM(used)')->first();
+
+        $dryerOneStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 13)->pluck('SUM(used)')->first();
+
+        //machine Two cycle yearly
+        $washerTwoStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 2)->pluck('SUM(used)')->first();
+
+        $dryerTwoStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 14)->pluck('SUM(used)')->first();
+
+        //machine Three cycle yearly
+        $washerThreeStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 3)->pluck('SUM(used)')->first();
+
+        $dryerThreeStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 15)->pluck('SUM(used)')->first();
+
+        //machine Four cycle yearly
+        $washerFourStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 4)->pluck('SUM(used)')->first();
+
+        $dryerFourStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 16)->pluck('SUM(used)')->first();
+
+        //machine Five cycle yearly
+        $washerFiveStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 5)->pluck('SUM(used)')->first();
+
+        $dryerFiveStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 17)->pluck('SUM(used)')->first();
+
+        //machine Six cycle yearly
+        $washerSixStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 6)->pluck('SUM(used)')->first();
+
+        $dryerSixStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 18)->pluck('SUM(used)')->first();
+
+        //machine Seven cycle yearly
+        $washerSevenStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 7)->pluck('SUM(used)')->first();
+
+        $dryerSevenStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 19)->pluck('SUM(used)')->first();
+
+        //machine Eight cycle yearly
+        $washerEightStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 8)->pluck('SUM(used)')->first();
+
+        $dryerEightStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 20)->pluck('SUM(used)')->first();
+
+        //machine Nine cycle yearly
+        $washerNineStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 9)->pluck('SUM(used)')->first();
+
+        $dryerNineStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 21)->pluck('SUM(used)')->first();
+
+        //machine Ten cycle yearly
+        $washerTenStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 10)->pluck('SUM(used)')->first();
+
+        $dryerTenStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 22)->pluck('SUM(used)')->first();
+
+        //machine Eleven cycle yearly
+        $washerElevenStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 11)->pluck('SUM(used)')->first();
+
+        $dryerElevenStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 23)->pluck('SUM(used)')->first();
+
+        //machine Twelve cycle yearly
+        $washerTwelveStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 12)->pluck('SUM(used)')->first();
+
+        $dryerTwelveStats_yearly = Sales_details::selectRaw('SUM(used)')->whereHas('sale',function($query) use ($yearnow) { 
+            $query->where(DB::raw("(DATE_FORMAT(transaction_date, '%Y'))"), '=', $yearnow);
+        })->where('product_id', '=', 24)->pluck('SUM(used)')->first();
+
+
+
         //donut sales by payment mode
         $cashpay = DB::table('sales')->selectRaw('ROUND(SUM(amount_due),2)')->where('payment_mode', 'cash')->get()->toArray();
         $cashpay = array_column($cashpay, 'ROUND(SUM(amount_due),2)');
@@ -1085,7 +1407,7 @@ class DashboardController extends Controller
 
         $topmembers = DB::table('sales')->selectRaw('DISTINCT (sales.member_id), CONCAT(users.firstname, " ", users.lastname) as name, SUM(amount_due) as amount_due')->groupBy('member_id')->join('users', 'sales.member_id', '=', 'users.id')->limit(10)->orderBy('amount_due', 'desc')->get()->toArray();
 
-        return view('admin.dashboard')->with(['newmembers' => $newmembers, 'lowstock' => $lowstock, 'reloadsales' => $reloadsales, 'sales' => $sales, 'washer_use' => $washer_use, 'dryer_use' => $dryer_use, 'cashpay' => json_encode($cashpay,JSON_NUMERIC_CHECK), 'loadpay' => json_encode($loadpay,JSON_NUMERIC_CHECK),'yearsales' => $yearsales,'salestoday' => $salestoday, 'topmembers' => $topmembers, 'washerOneStats' => $washerOneStats, 'washerTwoStats' => $washerTwoStats, 'washerThreeStats' => $washerThreeStats, 'washerFourStats' => $washerFourStats, 'washerFiveStats' => $washerFiveStats, 'washerSixStats' => $washerSixStats, 'washerSevenStats' => $washerSevenStats, 'washerEightStats' => $washerEightStats, 'washerNineStats' => $washerNineStats, 'washerTenStats' => $washerTenStats, 'washerElevenStats' => $washerElevenStats, 'washerTwelveStats' => $washerTwelveStats, 'dryerOneStats' => $dryerOneStats, 'dryerTwoStats' => $dryerTwoStats, 'dryerThreeStats' => $dryerThreeStats, 'dryerFourStats' => $dryerFourStats, 'dryerFiveStats' => $dryerFiveStats, 'dryerSixStats' => $dryerSixStats, 'dryerSevenStats' => $dryerSevenStats, 'dryerEightStats' => $dryerEightStats, 'dryerNineStats' => $dryerNineStats, 'dryerTenStats' => $dryerTenStats, 'dryerElevenStats' => $dryerElevenStats, 'dryerTwelveStats' => $dryerTwelveStats ]);
+        return view('admin.dashboard')->with(['newmembers' => $newmembers, 'lowstock' => $lowstock, 'reloadsales' => $reloadsales, 'sales' => $sales,'cashpay' => json_encode($cashpay,JSON_NUMERIC_CHECK), 'loadpay' => json_encode($loadpay,JSON_NUMERIC_CHECK),'yearsales' => $yearsales,'salestoday' => $salestoday, 'topmembers' => $topmembers, 'washerOneStats' => $washerOneStats, 'washerTwoStats' => $washerTwoStats, 'washerThreeStats' => $washerThreeStats, 'washerFourStats' => $washerFourStats, 'washerFiveStats' => $washerFiveStats, 'washerSixStats' => $washerSixStats, 'washerSevenStats' => $washerSevenStats, 'washerEightStats' => $washerEightStats, 'washerNineStats' => $washerNineStats, 'washerTenStats' => $washerTenStats, 'washerElevenStats' => $washerElevenStats, 'washerTwelveStats' => $washerTwelveStats, 'dryerOneStats' => $dryerOneStats, 'dryerTwoStats' => $dryerTwoStats, 'dryerThreeStats' => $dryerThreeStats, 'dryerFourStats' => $dryerFourStats, 'dryerFiveStats' => $dryerFiveStats, 'dryerSixStats' => $dryerSixStats, 'dryerSevenStats' => $dryerSevenStats, 'dryerEightStats' => $dryerEightStats, 'dryerNineStats' => $dryerNineStats, 'dryerTenStats' => $dryerTenStats, 'dryerElevenStats' => $dryerElevenStats, 'dryerTwelveStats' => $dryerTwelveStats, 'washerOneStats_weekly' => $washerOneStats_weekly, 'dryerOneStats_weekly' => $dryerOneStats_weekly, 'washerTwoStats_weekly' => $washerTwoStats_weekly, 'dryerTwoStats_weekly' => $dryerTwoStats_weekly, 'washerThreeStats_weekly' => $washerThreeStats_weekly, 'dryerThreeStats_weekly' => $dryerThreeStats_weekly, 'washerFourStats_weekly' => $washerFourStats_weekly, 'dryerFourStats_weekly' => $dryerFourStats_weekly, 'washerFiveStats_weekly' => $washerFiveStats_weekly, 'dryerFiveStats_weekly' => $dryerFiveStats_weekly, 'washerSixStats_weekly' => $washerSixStats_weekly, 'dryerSixStats_weekly' => $dryerSixStats_weekly, 'washerSevenStats_weekly' => $washerSevenStats_weekly, 'dryerSevenStats_weekly' => $dryerSevenStats_weekly, 'washerEightStats_weekly' => $washerEightStats_weekly, 'dryerEightStats_weekly' => $dryerEightStats_weekly, 'washerNineStats_weekly' => $washerNineStats_weekly, 'dryerNineStats_weekly' => $dryerNineStats_weekly, 'washerTenStats_weekly' => $washerTenStats_weekly, 'dryerTenStats_weekly' => $dryerTenStats_weekly, 'washerElevenStats_weekly' => $washerElevenStats_weekly, 'dryerElevenStats_weekly' => $dryerElevenStats_weekly, 'washerTwelveStats_weekly' => $washerTwelveStats_weekly, 'dryerTwelveStats_weekly' => $dryerTwelveStats_weekly, 'washerOneStats_monthly' => $washerOneStats_monthly, 'dryerOneStats_monthly' => $dryerOneStats_monthly, 'washerOneStats_monthly' => $washerOneStats_monthly, 'dryerOneStats_monthly' => $dryerOneStats_monthly, 'washerTwoStats_monthly' => $washerTwoStats_monthly, 'dryerTwoStats_monthly' => $dryerTwoStats_monthly, 'washerThreeStats_monthly' => $washerThreeStats_monthly, 'dryerThreeStats_monthly' => $dryerThreeStats_monthly, 'washerFourStats_monthly' => $washerFourStats_monthly, 'dryerFourStats_monthly' => $dryerFourStats_monthly, 'washerFiveStats_monthly' => $washerFiveStats_monthly, 'dryerFiveStats_monthly' => $dryerFiveStats_monthly, 'washerSixStats_monthly' => $washerSixStats_monthly, 'dryerSixStats_monthly' => $dryerSixStats_monthly, 'washerSevenStats_monthly' => $washerSevenStats_monthly, 'dryerSevenStats_monthly' => $dryerSevenStats_monthly, 'washerEightStats_monthly' => $washerEightStats_monthly, 'dryerEightStats_monthly' => $dryerEightStats_monthly, 'washerNineStats_monthly' => $washerNineStats_monthly, 'dryerNineStats_monthly' => $dryerNineStats_monthly, 'washerTenStats_monthly' => $washerTenStats_monthly, 'dryerTenStats_monthly' => $dryerTenStats_monthly, 'washerElevenStats_monthly' => $washerElevenStats_monthly, 'dryerElevenStats_monthly' => $dryerElevenStats_monthly, 'washerTwelveStats_monthly' => $washerTwelveStats_monthly, 'dryerTwelveStats_monthly' => $dryerTwelveStats_monthly, 'washerOneStats_monthly' => $washerOneStats_monthly, 'dryerOneStats_monthly' => $dryerOneStats_monthly,'washerOneStats_yearly' => $washerOneStats_yearly, 'dryerOneStats_yearly' => $dryerOneStats_yearly, 'washerTwoStats_yearly' => $washerTwoStats_yearly, 'dryerTwoStats_yearly' => $dryerTwoStats_yearly, 'washerThreeStats_yearly' => $washerThreeStats_yearly, 'dryerThreeStats_yearly' => $dryerThreeStats_yearly, 'washerFourStats_yearly' => $washerFourStats_yearly, 'dryerFourStats_yearly' => $dryerFourStats_yearly, 'washerFiveStats_yearly' => $washerFiveStats_yearly, 'dryerFiveStats_yearly' => $dryerFiveStats_yearly, 'washerSixStats_yearly' => $washerSixStats_yearly, 'dryerSixStats_yearly' => $dryerSixStats_yearly, 'washerSevenStats_yearly' => $washerSevenStats_yearly, 'dryerSevenStats_yearly' => $dryerSevenStats_yearly, 'washerEightStats_yearly' => $washerEightStats_yearly, 'dryerEightStats_yearly' => $dryerEightStats_yearly, 'washerNineStats_yearly' => $washerNineStats_yearly, 'dryerNineStats_yearly' => $dryerNineStats_yearly, 'washerTenStats_yearly' => $washerTenStats_yearly, 'dryerTenStats_yearly' => $dryerTenStats_yearly, 'washerElevenStats_yearly' => $washerElevenStats_yearly, 'dryerElevenStats_yearly' => $dryerElevenStats_yearly, 'washerTwelveStats_yearly' => $washerTwelveStats_yearly, 'dryerTwelveStats_yearly' => $dryerTwelveStats_yearly, 'washerOneStats_yearly' => $washerOneStats_yearly, 'dryerOneStats_yearly' => $dryerOneStats_yearly, ]);
     }
 
 }
