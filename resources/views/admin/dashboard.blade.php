@@ -333,35 +333,43 @@ DASHBOARD
       <div class="col m-1 border" id="active-members">
          <center><h6>Most Active Members</h6></center>
         <br>
-        <div class="row">
-                <div class="col">
-                  <h5 class="label-product">Member</h5>
+        @if(count($topmembers) != 0)
+          <div class="row">
+            <div class="col">
+              <h5 class="label-product">Member</h5>
+            </div>
+            <div class="col">
+              <h5 class="label-total">Total Purchase</h5>
+            </div>
+          </div>
+            @foreach($topmembers as $member)
+              @if($loop->first)
+                <div class="row">
+                  <div class="col">
+                    <h4>{{$loop->iteration . ". " . $member->name}}</h4>
+                  </div>
+                  <div class="col">
+                    <h2 class="top-product-price">₱ {{number_format($member->amount_due,2)}}</h2>
+                  </div>
                 </div>
-                <div class="col">
-                  <h5 class="label-total">Total Purchase</h5>
+              @else
+                <div class="row">
+                  <div class="col">
+                    <h6 class="label-product2">{{$loop->iteration . ". " . $member->name}}</h6>
+                  </div>
+                  <div class="col">
+                    <h6 class="label-total2">₱ {{number_format($member->amount_due,2)}}</h6>
+                  </div>
                 </div>
-              </div>
-          @foreach($topmembers as $member)
-            @if($loop->first)
-              <div class="row">
-                <div class="col">
-                  <h4>{{$loop->iteration . ". " . $member->name}}</h4>
-                </div>
-                <div class="col">
-                  <h2 class="top-product-price">₱ {{number_format($member->amount_due,2)}}</h2>
-                </div>
-              </div>
-            @else
-              <div class="row">
-                <div class="col">
-                  <h6 class="label-product2">{{$loop->iteration . ". " . $member->name}}</h6>
-                </div>
-                <div class="col">
-                  <h6 class="label-total2">₱ {{number_format($member->amount_due,2)}}</h6>
-                </div>
-              </div>
-            @endif
-          @endforeach
+              @endif
+            @endforeach
+          @else
+          <div class="row">
+            <div class="col">
+              <h4 class="text-center"> No Member Sales </h4>
+            </div>
+          </div>
+          @endif
       </div>
     </div>
 
