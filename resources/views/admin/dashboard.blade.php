@@ -103,6 +103,7 @@ DASHBOARD
         <div class="col-md-12">
           <div class="row">
             <div class="btn-group mx-auto">
+              <div class="col-md-5"></div>
               <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 1 Week
               </button>
@@ -189,7 +190,7 @@ DASHBOARD
 
             <table class="onemonth">
               <tr>
-                <th class="text-center">Machine Number</th>
+                <th class="text-center label-product">Machine Number</th>
                 <th class="text-center label-total">Washer Count</th>
                 <th class="text-center label-total">Dryer Count</th>
               </tr>
@@ -257,7 +258,7 @@ DASHBOARD
 
             <table class="oneyear">
               <tr>
-                <th class="text-center">Machine Number</th>
+                <th class="text-center label-product">Machine Number</th>
                 <th class="text-center label-total">Washer Count</th>
                 <th class="text-center label-total">Dryer Count</th>
               </tr>
