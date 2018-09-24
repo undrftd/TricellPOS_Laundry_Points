@@ -103,7 +103,6 @@ DASHBOARD
         <div class="col-md-12">
           <div class="row">
             <div class="btn-group mx-auto">
-              <div class="col-md-5"></div>
               <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 1 Week
               </button>
